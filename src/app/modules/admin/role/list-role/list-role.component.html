@@ -1,0 +1,21 @@
+<button mat-raised-button color="primary" (click)="openCreateRoleDialog()">Create New Role</button>
+
+<table class="table table-bordered text-center" *ngIf="roles.length > 0; else templateName">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let item of roles">
+    <td>{{ item.id }}</td>
+    <td>{{ item.name }}</td>
+    <td>
+      <a class="btn btn-primary" (click)="openEditRoleDialog(item)">Edit</a>
+      <a href="#" class="btn btn-danger">Delete</a>
+    </td>
+  </tr>
+</table>
+
+<ng-template #templateName>
+  No roles created yet ..
+</ng-template>

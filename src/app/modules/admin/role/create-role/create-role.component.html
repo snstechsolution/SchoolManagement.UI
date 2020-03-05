@@ -1,0 +1,16 @@
+<mat-toolbar color="primary" style="justify-content: space-between; margin-bottom: 25px;">
+  <span>Add New Role</span>
+  <button (click)="closeDialog()">x</button>
+</mat-toolbar>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Name of Role</mat-label>
+    <input matInput [formControl]="roleFromControl" placeholder="Name of Role" />
+    <mat-error *ngIf="roleFromControl.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+  </mat-form-field>
+</form>
+<button mat-raised-button color="primary" (click)="onclickCreateRole()" [disabled]="!roleFromControl.valid">
+  Create Role
+</button>
